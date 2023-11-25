@@ -17,13 +17,23 @@ class Graph {
 
 		// Default
 		Graph();
-		// One arg
-		Graph(std::string);
+		// One-Arg, creates nodes from file
+		Graph(std::string,int, int);
+		// Two-Arg, creates nodes from file1 and links nodes from file2
+		Graph(std::string, std::string,int, int);
 
 		// Functions
 
 		// Returns nodes vector
-		std::vector<Vertex*> & getNodes();
+		std::vector<Vertex*> getNodes() const;
+		// Set nodes vector
+		void addNode(Vertex*);
+		// Create nodes
+		void createNodes(std::string,int, int);
+		// Link nodes
+		void linkNodes(std::string);
+		// Find node in nodes
+		Vertex* getNode(int);
 
 };
 

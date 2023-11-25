@@ -7,20 +7,20 @@ Vertex::Vertex() {
 
 }
 // One arg Constructor
-Vertex::Vertex(std::vector<std::string> city_data) {
-	city_data = city_data;
+Vertex::Vertex(std::vector<std::string> d) {
+	data = d;
 }
 
 //Functions
 
 // returns vertices ID
-std::vector<std::string> Vertex::getCityData() const {
-	return city_data;
+std::vector<std::string> Vertex::getData() const {
+	return data;
 }
 
 // sets vertices ID
-void Vertex::setCityData(std::vector<std::string> city_data) {
-	city_data = city_data;
+void Vertex::setData(std::vector<std::string> d) {
+	data = d;
 }
 
 // returns a refrence to vertices edges
@@ -34,7 +34,7 @@ std::vector<int> & Vertex::getWeights() {
 }
 
 // adds an edge to the vertex
-void Vertex::addEdge(Vertex* v) {
+void Vertex::addEdge(Vertex *v) {
 	edges.push_back(v);
 }
 
@@ -45,7 +45,21 @@ void Vertex::addWeight(int w) {
 
 // print vertex info
 void Vertex::printVertex() {
+	std::cout << "DATA: [ ";
 	for (int i = 0; i < 5; i++) {
-		std::cout << city_data[i] << std::endl;
+		std::cout << data[i] << " ";
 	}
+	std::cout << "]" << std::endl;
+
+	std::cout << "EDGES: [ ";
+	for (int i = 0; i < edges.size(); i++) {
+		std::cout << edges[i]->getData()[0] << " ";
+	}
+	std::cout << "]" << std::endl;
+
+	std::cout << "WEIGHTS [ ";
+	for (int i = 0; i < weights.size(); i++) {
+		std::cout << weights[i] << " ";
+	}
+	std::cout << "]" << std::endl;
 }

@@ -16,36 +16,17 @@
 #define DATA 5
 
 // Helper Function definitions 
-bool getCityData(std::string, std::vector<std::vector<std::string>>&, std::vector<std::string>&);
+bool getCityData(std::string, std::vector<Vertex*>, std::vector<std::string>&);
 
 int main (int argc, char *argv[]) {
 
-	// Create Graph from raod.txt file
-	Graph g = Graph("road.txt");
+	// Create Graph
+	Graph g = Graph("city.txt", "road.txt", CITY, DATA);
 
-	// Extract data from city.txt
-	std::vector<std::vector<std::string>> city_data(CITY, std::vector<std::string>(DATA, " "));
-
-	//Read from city.txt file to set city_data;
-	std::ifstream infile("city.txt");
-	if (!infile.is_open()) {
-		std::cout << "Error: Cannot open city.txt file." << std::endl;
-	}
-
-	// Instead of using this nested for loop to set the 2d vector 'city_data' we
-	// could just hard code this like this (this is what the nest loop does):
-	/*
-		std::vector<std::vector<std::string>> city_data =
-			{{"0"}, {"AN"}, {"ANAHEIM"}, {"1273000"}, {"310"}}
-			{{"1"}, {"BK"},	{"BAKERSFIELD"}, {"31100"},	{"390"}}
-			etc.
-
-	 */
-	for (int i = 0; i < CITY; i++) {
-		for (int j = 0; j < DATA; j++) {
-			infile >> city_data[i][j];
-			infile.ignore();
-		}
+	// Print all nodes
+	for (int i = 0; i < g.getNodes().size(); i++) {
+		g.getNodes()[i]->printVertex();
+		std::cout << "-----------------------------" << std::endl;
 	}
 
 	// Get and set input cities
@@ -58,8 +39,8 @@ int main (int argc, char *argv[]) {
 
 	// sets 'from' and 'to' city data vector and if it can't then exits the program.
 	// Tells the user the which city code is invalid or if both are invalid
-	bool fromFlag = getCityData(fromCitycode, city_data, from_data);
-	bool toFlag = getCityData(toCitycode, city_data, to_data);
+	bool fromFlag = getCityData(fromCitycode, g.getNodes(), from_data);
+	bool toFlag = getCityData(toCitycode, g.getNodes(), to_data);
 
 	// tells user if both are invalid
 	if (!fromFlag & !toFlag) {
@@ -125,12 +106,12 @@ int main (int argc, char *argv[]) {
  * @param data refrence to the vector of strings
  * @return true if found, false if not found
  */
-bool getCityData(std::string city_code, std::vector<std::vector<std::string>> &city_data, std::vector<std::string> &data) {
+bool getCityData(std::string city_code, std::vector<Vertex*> city_data, std::vector<std::string> &data) {
 	// Linear search,100 item array
 	for (int i = 0; i < CITY; i++) {
 		for (int j = 0; j < DATA; j++) {
-			if (city_data[i][j] == city_code) {
-				data = city_data[i];
+			if (city_data[i]->getData()[j] == city_code) {
+				data = city_data[i]->getData();
 				return true;
 			}
 		}

@@ -9,7 +9,7 @@
 class Vertex {
 	private:
 		// City Data
-		std::vector<std::string> city_data;
+		std::vector<std::string> data;
 		// All vertices connected to this vertex, one-to-one to weights
 		std::vector<Vertex*> edges;
 		// All weights leading to this vertex, one-to-one to edges
@@ -21,14 +21,14 @@ class Vertex {
 		// Default Constructor
 		Vertex();
 		// One arg Constructor
-		Vertex(std::vector<std::string>); 
+		Vertex(std::vector<std::string>);
 
 		//Functions
 
 		// returns vertices ID
-		std::vector<std::string> getCityData() const;
+		std::vector<std::string> getData() const;
 		// sets vertices ID
-		void setCityData(std::vector<std::string>);
+		void setData(std::vector<std::string>);
 		// returns a refrence to vertices edges
 		std::vector<Vertex*> & getEdges();
 		// returns a refrence to vertices weights
