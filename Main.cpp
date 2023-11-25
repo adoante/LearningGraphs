@@ -4,11 +4,6 @@
 #include <fstream>
 #include "Graph.h"
 
-// Using defines for city.txt sizes
-// Could hard code 20 and 5, condsidering our input will always be a 20 and 5
-#define CITY 20
-#define DATA 5
-
 // Helper Function definitions 
 bool getCityData(std::string, std::vector<Vertex*>, std::vector<std::string>&);
 
@@ -102,8 +97,8 @@ int main (int argc, char *argv[]) {
  */
 bool getCityData(std::string city_code, std::vector<Vertex*> city_data, std::vector<std::string> &data) {
 	// Linear search,100 item array
-	for (int i = 0; i < CITY; i++) {
-		for (int j = 0; j < DATA; j++) {
+	for (int i = 0; i < city_data.size(); i++) {
+		for (int j = 0; j < city_data[j]->getData().size(); j++) {
 			if (city_data[i]->getData()[j] == city_code) {
 				data = city_data[i]->getData();
 				return true;
