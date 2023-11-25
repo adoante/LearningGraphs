@@ -9,13 +9,13 @@ Graph::Graph() {
 }
 
 // One-Arg, creates nodes from file
-Graph::Graph(std::string infile, int d) {
-	createNodes(infile, d);
+Graph::Graph(std::string infile) {
+	createNodes(infile);
 }
 
 // Two-Arg, creates nodes from file1 and links nodes from file2
-Graph::Graph(std::string nodeFile, std::string linkFile, int d) {
-	createNodes(nodeFile, d);
+Graph::Graph(std::string nodeFile, std::string linkFile) {
+	createNodes(nodeFile);
 	linkNodes(linkFile);
 }
 
@@ -30,23 +30,24 @@ void Graph::addNode(Vertex* n) {
 }
 
 // Create nodes
-void Graph::createNodes(std::string file, int d) {
+void Graph::createNodes(std::string file) {
 	std::ifstream infile(file);
 	if (!infile.is_open()) {
 		std::cout << "Error: Cannot open city.txt file." << std::endl;
 	}
-	
 
+	Vertex *temp = new Vertex();
 	while(!infile.eof()) {
-		Vertex *temp = new Vertex();
-		for (int i = 0; i < d; i++) {
-			std::string stemp;
-			infile >> stemp;
-			temp->getData().push_back(stemp);
-			infile.ignore();
+		std::string stemp;
+		infile >> stemp;
+		temp->getData().push_back(stemp);
+		if (infile.peek() == '\n') {
+			addNode(temp);
+			temp = new Vertex();
 		}
-		addNode(temp);
+		infile.ignore();
 	}
+	infile.close();
 }
 
 // Link nodes to each other
@@ -71,6 +72,8 @@ void Graph::linkNodes(std::string file) {
 		getNode(start)->addEdge(getNode(end));
 		getNode(start)->addWeight(weight);
 	}
+
+	infile.close();
 }
 
 Vertex* Graph::getNode(int id) {

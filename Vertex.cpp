@@ -46,7 +46,7 @@ void Vertex::addWeight(int w) {
 // print vertex info
 void Vertex::printVertex() {
 	std::cout << "DATA: [ ";
-	for (int i = 0; i < 5; i++) {
+	for (int i = 0; i < data.size(); i++) {
 		std::cout << data[i] << " ";
 	}
 	std::cout << "]" << std::endl;

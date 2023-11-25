@@ -1,13 +1,7 @@
 #include <iostream>
-// Going to need to create a Graph class
-//#include "Graph.h"
-// vector because c-style arrays yuck ew 
 #include <vector>
-// need this for stoi() converts string to int
 #include <string>
-// need this for reading files
 #include <fstream>
-
 #include "Graph.h"
 
 // Using defines for city.txt sizes
@@ -21,7 +15,7 @@ bool getCityData(std::string, std::vector<Vertex*>, std::vector<std::string>&);
 int main (int argc, char *argv[]) {
 
 	// Create Graph
-	Graph g = Graph("city.txt", "road.txt", DATA);
+	Graph g = Graph("city.txt", "road.txt");
 
 	// Print all nodes
 	for (int i = 0; i < g.getNodes().size(); i++) {
