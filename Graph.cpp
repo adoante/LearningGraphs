@@ -84,3 +84,7 @@ Vertex* Graph::getNode(int id) {
 		}
 	}
 }
+
+void Graph::dijkstra(int from, int to) {
+	
+}

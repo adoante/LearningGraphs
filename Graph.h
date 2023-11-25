@@ -34,6 +34,8 @@ class Graph {
 		void linkNodes(std::string);
 		// Find node in nodes
 		Vertex* getNode(int);
+		// Shortest Path
+		void dijkstra(int,int);
 
 };
 
