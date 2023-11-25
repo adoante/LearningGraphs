@@ -36,7 +36,9 @@ void Graph::createNodes(std::string file) {
 		std::cout << "Error: Cannot open city.txt file." << std::endl;
 	}
 
+	// Creates nodes
 	Vertex *temp = new Vertex();
+	// reads file untll eof
 	while(!infile.eof()) {
 		std::string stemp;
 		infile >> stemp;
@@ -85,4 +87,5 @@ Vertex* Graph::getNode(int id) {
 }
 
 void Graph::dijkstra(int from, int to) {
+	
 }

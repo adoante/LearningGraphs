@@ -65,7 +65,7 @@ int main (int argc, char *argv[]) {
 	int toElevation = stoi(to_data[4]);
 
 	// Print group name and info on the input cities
-	std::cout << "Author: Adolfo Sanpedro Gante, Caleb Gutierrez and Jack Walker" << std::endl;
+	std::cout << "Author: Adolfo Sanpedro Gante" << std::endl;
 	std::cout << "Date: 11/29/2023" << std::endl;
 	std::cout << "Course: CS311 (Data structures and Algorithms)" << std::endl;
 	std::cout << "Description : Program to find the shortest route between cities" << std::endl; 
