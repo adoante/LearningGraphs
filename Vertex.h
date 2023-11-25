@@ -26,7 +26,7 @@ class Vertex {
 		//Functions
 
 		// returns vertices ID
-		std::vector<std::string> getData() const;
+		std::vector<std::string> & getData();
 		// sets vertices ID
 		void setData(std::vector<std::string>);
 		// returns a refrence to vertices edges

@@ -18,9 +18,9 @@ class Graph {
 		// Default
 		Graph();
 		// One-Arg, creates nodes from file
-		Graph(std::string,int, int);
+		Graph(std::string,int);
 		// Two-Arg, creates nodes from file1 and links nodes from file2
-		Graph(std::string, std::string,int, int);
+		Graph(std::string, std::string,int);
 
 		// Functions
 
@@ -29,7 +29,7 @@ class Graph {
 		// Set nodes vector
 		void addNode(Vertex*);
 		// Create nodes
-		void createNodes(std::string,int, int);
+		void createNodes(std::string,int);
 		// Link nodes
 		void linkNodes(std::string);
 		// Find node in nodes

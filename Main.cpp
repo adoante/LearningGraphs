@@ -21,7 +21,7 @@ bool getCityData(std::string, std::vector<Vertex*>, std::vector<std::string>&);
 int main (int argc, char *argv[]) {
 
 	// Create Graph
-	Graph g = Graph("city.txt", "road.txt", CITY, DATA);
+	Graph g = Graph("city.txt", "road.txt", DATA);
 
 	// Print all nodes
 	for (int i = 0; i < g.getNodes().size(); i++) {

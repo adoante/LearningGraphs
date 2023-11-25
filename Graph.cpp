@@ -9,13 +9,13 @@ Graph::Graph() {
 }
 
 // One-Arg, creates nodes from file
-Graph::Graph(std::string infile, int n, int d) {
-	createNodes(infile, n, d);
+Graph::Graph(std::string infile, int d) {
+	createNodes(infile, d);
 }
 
 // Two-Arg, creates nodes from file1 and links nodes from file2
-Graph::Graph(std::string nodeFile, std::string linkFile, int n, int d) {
-	createNodes(nodeFile, n, d);
+Graph::Graph(std::string nodeFile, std::string linkFile, int d) {
+	createNodes(nodeFile, d);
 	linkNodes(linkFile);
 }
 
@@ -30,25 +30,21 @@ void Graph::addNode(Vertex* n) {
 }
 
 // Create nodes
-void Graph::createNodes(std::string file, int n, int d) {
-	std::vector<std::vector<std::string>> node_data(n, std::vector<std::string>(d, " "));
-
+void Graph::createNodes(std::string file, int d) {
 	std::ifstream infile(file);
 	if (!infile.is_open()) {
 		std::cout << "Error: Cannot open city.txt file." << std::endl;
 	}
 	
-	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < d; j++) {
-			infile >> node_data[i][j];
+
+	while(!infile.eof()) {
+		Vertex *temp = new Vertex();
+		for (int i = 0; i < d; i++) {
+			std::string stemp;
+			infile >> stemp;
+			temp->getData().push_back(stemp);
 			infile.ignore();
 		}
-	}
-
-	//add nodes to graph
-	for (int i = 0; i < node_data.size(); i++) {
-		Vertex *temp = new Vertex();
-		temp->setData(node_data[i]);
 		addNode(temp);
 	}
 }
@@ -86,5 +82,4 @@ Vertex* Graph::getNode(int id) {
 }
 
 void Graph::dijkstra(int from, int to) {
-	
 }

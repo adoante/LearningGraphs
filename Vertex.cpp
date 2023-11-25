@@ -14,7 +14,7 @@ Vertex::Vertex(std::vector<std::string> d) {
 //Functions
 
 // returns vertices ID
-std::vector<std::string> Vertex::getData() const {
+std::vector<std::string> & Vertex::getData() {
 	return data;
 }
 
