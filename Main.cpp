@@ -59,12 +59,7 @@ int main (int argc, char *argv[]) {
 	int toPopulation = stoi(to_data[3]);
 	int toElevation = stoi(to_data[4]);
 
-	// Print group name and info on the input cities
-	std::cout << "Author: Adolfo Sanpedro Gante" << std::endl;
-	std::cout << "Date: 11/29/2023" << std::endl;
-	std::cout << "Course: CS311 (Data structures and Algorithms)" << std::endl;
-	std::cout << "Description : Program to find the shortest route between cities" << std::endl; 
-	std::cout << "----------------------------------------------------------------" << std::endl;
+	// Print info on the input cities
 	std::cout << "From City: " << fromName << ", population " << fromPopulation << ", elevation " << fromElevation << std::endl;
 	std::cout << "To City: " << toName << ", population " << toPopulation << ", elevation " << toElevation << std::endl;
 
