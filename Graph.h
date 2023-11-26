@@ -9,7 +9,7 @@
 
 class Graph {
 	private:
-		// Every vecter in the graph
+		// Every vector in the graph
 		std::vector<Vertex*> nodes;
 
 	public:

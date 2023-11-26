@@ -25,7 +25,7 @@ int main (int argc, char *argv[]) {
 	std::vector<std::string> from_data;
 	std::vector<std::string> to_data;
 
-	// sets 'from' and 'to' city data vector and if it can't then exits the program.
+	// sets 'from' and 'to' city data vector and if it can't then it exits the program.
 	// Tells the user the which city code is invalid or if both are invalid
 	bool fromFlag = getCityData(fromCitycode, g.getNodes(), from_data);
 	bool toFlag = getCityData(toCitycode, g.getNodes(), to_data);
@@ -62,7 +62,7 @@ int main (int argc, char *argv[]) {
 	std::cout << "From City: " << fromName << ", population " << fromPopulation << ", elevation " << fromElevation << std::endl;
 	std::cout << "To City: " << toName << ", population " << toPopulation << ", elevation " << toElevation << std::endl;
 
-	// Prints shortset route
+	// Prints shortest route
 	// TODO
 	/*
 		Could look something like this.
@@ -85,8 +85,8 @@ int main (int argc, char *argv[]) {
  * @brief Finds and sets 'from' or 'to' city data if city is found in city_data vector
  * 
  * @param city_code 2 letter code of city we are searching for
- * @param city_data refrence all city data vector
- * @param data refrence to the vector of strings
+ * @param city_data reference all city data vector
+ * @param data reference to the vector of strings
  * @return true if found, false if not found
  */
 bool getCityData(std::string &city_code, std::vector<Vertex*> city_data, std::vector<std::string> &data) {
