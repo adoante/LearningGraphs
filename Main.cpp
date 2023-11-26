@@ -4,7 +4,7 @@
 #include "Graph.h"
 
 // Helper Function definitions 
-bool getCityData(std::string, std::vector<Vertex*>, std::vector<std::string>&);
+bool getCityData(std::string&, std::vector<Vertex*>, std::vector<std::string>&);
 
 int main (int argc, char *argv[]) {
 
@@ -69,7 +69,7 @@ int main (int argc, char *argv[]) {
 		Where shortestRoute is function in the graph class
 		and returns true or false
 		if true it prints the shortest path within the function
-		if false it just returns false and we handle it in our main.cpp
+		if false it just returns, false and we handle it in our main.cpp
 
 		bool path = g.shortestRoute(fromId, toId);
 		if (path == false) {
@@ -89,7 +89,7 @@ int main (int argc, char *argv[]) {
  * @param data refrence to the vector of strings
  * @return true if found, false if not found
  */
-bool getCityData(std::string city_code, std::vector<Vertex*> city_data, std::vector<std::string> &data) {
+bool getCityData(std::string &city_code, std::vector<Vertex*> city_data, std::vector<std::string> &data) {
 	// Linear search,100 item array
 	for (int i = 0; i < city_data.size(); i++) {
 		for (int j = 0; j < city_data[j]->getData().size(); j++) {
