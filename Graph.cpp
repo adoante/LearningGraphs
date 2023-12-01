@@ -49,6 +49,8 @@ void Graph::createNodes(std::string file) {
 		}
 		infile.ignore();
 	}
+
+	delete temp;
 	infile.close();
 }
 
