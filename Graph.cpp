@@ -24,6 +24,11 @@ std::vector<Vertex*> Graph::getNodes() const {
 	return nodes;
 }
 
+// Returns numher of vertices
+int Graph::vert_count() {
+	return nodes.size();
+}
+
 // Add node to graph
 void Graph::addNode(Vertex* n) {
 	nodes.push_back(n);
@@ -88,4 +93,16 @@ Vertex* Graph::getNode(int id) {
 
 void Graph::dijkstra(int from, int to) {
 	
+}
+
+void Graph::DFS(int v) {
+
+}
+
+void Graph::BFS(int s) {
+
+}
+
+void Graph::BellmanFord(int s) {
+
 }

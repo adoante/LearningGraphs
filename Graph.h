@@ -26,6 +26,8 @@ class Graph {
 
 		// Returns nodes vector
 		std::vector<Vertex*> getNodes() const;
+		// Returns number of vertices(
+		int vert_count();
 		// Set nodes vector
 		void addNode(Vertex*);
 		// Create nodes
@@ -36,6 +38,12 @@ class Graph {
 		Vertex* getNode(int);
 		// Shortest Path
 		void dijkstra(int,int);
+		
+		void DFS(int v);
+
+		void BFS(int s);
+
+		void BellmanFord(int s);
 
 };
 

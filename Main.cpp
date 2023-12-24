@@ -77,6 +77,8 @@ int main (int argc, char *argv[]) {
 		}
 	 */
 
+	std::cout << "Number of cities: " << g.vert_count() << std::endl;
+
 	return 0;
 }
 
